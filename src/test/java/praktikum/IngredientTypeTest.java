@@ -12,13 +12,13 @@ public class IngredientTypeTest {
     private final String type;
     private final int expectedNumber;
 
-    public IngredientTypeTest(String type, int expectedNumber){
+    public IngredientTypeTest(String type, int expectedNumber) {
         this.type = type;
         this.expectedNumber = expectedNumber;
     }
 
     @Parameterized.Parameters
-    public static Object[][] getTypes(){
+    public static Object[][] getTypes() {
         return new Object[][]{
                 {"SAUCE", 0},
                 {"FILLING", 1}
@@ -26,8 +26,8 @@ public class IngredientTypeTest {
     }
 
     @Test
-    public void enumContainTypeTest(){
+    public void enumContainTypeTest() {
         int actualNumber = IngredientType.valueOf(IngredientType.class, type).ordinal();
-        assertEquals(expectedNumber, actualNumber);
+        assertEquals("Ожидалось другое количество типов ингредиентов!", expectedNumber, actualNumber);
     }
 }
